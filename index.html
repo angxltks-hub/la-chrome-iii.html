@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BARBAS HATS - MVR4K4M1</title>
+<title>Barbas Hats – MVR4K4M1</title>
+
 <style>
 body{
   margin:0;
@@ -17,27 +18,26 @@ body{
   margin:auto;
   padding:20px;
 }
-.logo{
-  font-size:26px;
-  font-weight:bold;
-  margin-bottom:10px;
+.logo-img{
+  width:90px;
+  margin:10px auto 5px;
 }
 .auth{
   font-size:28px;
   font-weight:900;
-  margin:20px 0 5px;
+  margin:10px 0 5px;
 }
 .model{
   font-size:14px;
-  letter-spacing:1px;
+  letter-spacing:2px;
+  margin-bottom:15px;
 }
-img{
+img.product{
   width:100%;
   margin:25px 0;
 }
 .count{
   font-size:16px;
-  margin:10px 0;
 }
 .count span{
   font-size:32px;
@@ -52,7 +52,6 @@ button{
   color:#fff;
   border:none;
   border-radius:12px;
-  cursor:pointer;
 }
 .footer{
   margin-top:25px;
@@ -64,12 +63,15 @@ button{
 <body>
 <div class="container">
 
-  <div class="logo">BARBAS HATS</div>
+  <!-- LOGOTIPO -->
+  <img src="logo-barbas.png" class="logo-img" alt="Barbas Hats Logo">
 
   <div class="auth">AUTHENTIC</div>
-  <div class="model">MVR4K4M1</div>
+  <div class="model">KORIDŌSU TUNBĀDOSU</div>
 
-  <img src="MVR4K4M1".jpg" alt="MVR4K4M1">
+  <!-- PRODUCTO -->
+  <img src="mvr4k4m1.png" class="product" alt="Barbas Hats MVR4K4M1">
+
   <div class="count">
     TOTAL SCAN COUNT :
     <div><span id="counter">0</span> SCANS</div>
@@ -85,7 +87,7 @@ button{
 </div>
 
 <script>
-fetch("https://api.countapi.xyz/hit/31hats-la-chrome-iii/scan")
+fetch("https://api.countapi.xyz/hit/barbas-hats-mvr4k4m1/scan")
   .then(res => res.json())
   .then(data => {
     document.getElementById("counter").innerText = data.value;
