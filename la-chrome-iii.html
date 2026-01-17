@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>31 Hats – LA Chrome III</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#ffffff;
+  color:#000;
+  text-align:center;
+}
+.container{
+  max-width:420px;
+  margin:auto;
+  padding:20px;
+}
+.logo{
+  font-size:26px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+.auth{
+  font-size:28px;
+  font-weight:900;
+  margin:20px 0 5px;
+}
+.model{
+  font-size:14px;
+  letter-spacing:1px;
+}
+img{
+  width:100%;
+  margin:25px 0;
+}
+.count{
+  font-size:16px;
+  margin:10px 0;
+}
+.count span{
+  font-size:32px;
+  font-weight:bold;
+}
+button{
+  width:100%;
+  padding:18px;
+  font-size:20px;
+  font-weight:bold;
+  background:#000;
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+}
+.footer{
+  margin-top:25px;
+  font-size:11px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="logo">31 Hats</div>
+
+  <div class="auth">AUTHENTIC</div>
+  <div class="model">LA CHROME III (LAST EDITION)</div>
+
+  <img src="https://i.imgur.com/6ZQZ6Zb.png" alt="LA Chrome III">
+
+  <div class="count">
+    TOTAL SCAN COUNT :
+    <div><span id="counter">0</span> SCANS</div>
+  </div>
+
+  <button>VERIFY</button>
+
+  <div class="footer">
+    QUIÉN MÁS SI NO 31 HATS?<br>
+    © 2025 31 HATS. ALL RIGHTS RESERVED.
+  </div>
+
+</div>
+
+<script>
+fetch("https://api.countapi.xyz/hit/31hats-la-chrome-iii/scan")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("counter").innerText = data.value;
+  });
+</script>
+
+</body>
+</html>
