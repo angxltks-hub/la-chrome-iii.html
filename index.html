@@ -1,82 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WIRIWIRISKIS AUTHENTIC</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbas Hats – WIRIWIRISKIS</title>
 
 <style>
 body{
   margin:0;
-  background:#000;
-  font-family:system-ui, Arial, sans-serif;
-  display:flex;
-  justify-content:center;
-}
-.wrap{
-  max-width:480px;
-  width:100%;
-  background:#fff;
-  padding:20px;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#ffffff;
+  color:#000;
   text-align:center;
 }
-.title{
-  font-size:46px;
+.container{
+  max-width:420px;
+  margin:auto;
+  padding:20px;
+}
+.logo-img{
+  width:90px;
+  margin:10px auto 5px;
+}
+.auth{
+  font-size:28px;
   font-weight:900;
   margin:10px 0 5px;
 }
-.subtitle{
-  font-weight:700;
+.model{
+  font-size:14px;
+  letter-spacing:2px;
   margin-bottom:15px;
 }
-.product img{
+img.product{
   width:100%;
-  max-width:420px;
+  margin:25px 0;
 }
-.meta{
-  margin:20px 0;
+.count{
+  font-size:16px;
 }
-.scan{
-  font-size:36px;
-  font-weight:900;
+.count span{
+  font-size:32px;
+  font-weight:bold;
 }
-.verify img{
-  width:280px;
-  margin-top:10px;
+button{
+  width:100%;
+  padding:18px;
+  font-size:20px;
+  font-weight:bold;
+  background:#000;
+  color:#fff;
+  border:none;
+  border-radius:12px;
+}
+.footer{
+  margin-top:25px;
+  font-size:11px;
 }
 </style>
 </head>
 
 <body>
-<div class="wrap">
+<div class="container">
 
-  <!-- IMAGEN DEL PRODUCTO -->
-  <div class="product">
-    <img src="image/logo.png" alt="WIRIWIRISKIS CAP">
+  <!-- LOGOTIPO -->
+  <img src="logo.png" class="logo-img" alt="Barbas Hats Logo">
+
+  <div class="auth">AUTHENTIC</div>
+  <div class="model">WIRIWIRISKIS</div>
+
+  <!-- PRODUCTO -->
+  <img src="wiriwiriskis.png" class="product" alt="Barbas Hats WIRIWIRISKIS">
+
+  <div class="count">
+    TOTAL SCAN COUNT :
+    <div><span id="counter">0</span> SCANS</div>
   </div>
 
-  <h1 class="title">AUTHENTIC</h1>
-  <div class="subtitle">WIRIWIRISKIS CHROME (LAST EDITION)</div>
+  <button>VERIFY</button>
 
-  <!-- CONTADOR -->
-  <div class="meta">
-    <div>TOTAL SCAN COUNT</div>
-    <div class="scan"><span id="visitCount">1</span> SCANS</div>
-  </div>
-
-  <!-- BOTÓN VERIFY -->
-  <div class="verify">
-    <img src="image/verify.png" alt="VERIFY NFC">
+  <div class="footer">
+    QUIÉN MÁS SI NO BARBAS?<br>
+    © 2025 BARBAS HATS. ALL RIGHTS RESERVED.
   </div>
 
 </div>
 
 <script>
-const key = 'visitCount_' + location.pathname;
-let count = localStorage.getItem(key);
-count = count ? parseInt(count) + 1 : 1;
-localStorage.setItem(key, count);
-document.getElementById('visitCount').innerText = count;
+fetch("https://api.countapi.xyz/hit/barbas-hats-wiriwiriskis/scan")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("counter").innerText = data.value;
+  });
 </script>
 
 </body>
