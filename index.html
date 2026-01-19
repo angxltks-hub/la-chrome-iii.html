@@ -14,7 +14,7 @@ body{
   text-align:center;
 }
   .title
-  font-size:46px;
+  font-size:76px;
   font-weight:900;
   margin:10px 0 5px;
 }
@@ -49,7 +49,7 @@ img.product{
   font-weight:bold;
 }
 button{
-  width:100%;
+  width:50%;
   padding:18px;
   font-size:20px;
   font-weight:bold;
@@ -80,11 +80,6 @@ button{
   <div class="meta">
     <div>TOTAL SCAN COUNT</div>
     <div class="scan"><span id="visitCount">1</span> SCANS</div>
-  </div>
-
-  <div class="verify">
-    <img src="verify.png" alt="VERIFY NFC">
-  </div>
 
 </div>
 
@@ -97,10 +92,18 @@ button{
 
 <script>
 const key = 'visitCount_' + location.pathname;
+
+// leer contador
 let count = localStorage.getItem(key);
-count = count ? parseInt(count)+1 : 1;
-localStorage.setItem(key,count);
+
+// si no existe, empieza en 0
+count = count ? parseInt(count) : 0;
+
+// mostrar
 document.getElementById('visitCount').innerText = count;
+
+count++;
+localStorage.setItem(key, count);
 </script>
 
 </body>
