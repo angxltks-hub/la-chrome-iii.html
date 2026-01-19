@@ -77,12 +77,16 @@ button{
   <!-- PRODUCTO -->
   <img src="bienestarr.png" class="product" alt="Barbas Hats MODO BIENESTAR">
 
-  <div class="count">
-    TOTAL SCAN COUNT :
-    <div><span id="counter">0</span> SCANS</div>
+  <div class="meta">
+    <div>TOTAL SCAN COUNT</div>
+    <div class="scan"><span id="visitCount">1</span> SCANS</div>
   </div>
 
-  <button>VERIFY</button>
+  <div class="verify">
+    <img src="image/verify.png" alt="VERIFY NFC">
+  </div>
+
+</div>
 
   <div class="footer">
     QUIÉN MÁS SI NO BARBAS?<br>
@@ -92,11 +96,11 @@ button{
 </div>
 
 <script>
-fetch("https://api.countapi.xyz/hit/barbas-hats-wiriwiriskis/scan")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("counter").innerText = data.value;
-  });
+const key = 'visitCount_' + location.pathname;
+let count = localStorage.getItem(key);
+count = count ? parseInt(count)+1 : 1;
+localStorage.setItem(key,count);
+document.getElementById('visitCount').innerText = count;
 </script>
 
 </body>
